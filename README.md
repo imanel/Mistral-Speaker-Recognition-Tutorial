@@ -19,7 +19,8 @@ or
 #./openrec
 
 
-===============================================OPTIONAL============================
+OPTIONAL
+========
 IF you muzt train the world model you have to Download (~90MB): http://mistral.univ-avignon.fr/doc/01_GMM-UBM_system_with_ALIZE3.0.tar.gz
 
 Extract and copy everything in 
