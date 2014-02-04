@@ -12,7 +12,7 @@ Then run it as follows:
 
 Then Run Program:
 
-$./a.out
+#./a.out
 
 or
 
