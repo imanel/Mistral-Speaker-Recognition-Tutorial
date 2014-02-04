@@ -1,0 +1,23 @@
+Extract the mail (openrec.zip) i sent to your home directory
+
+TO run the Program i sent you
+===============================
+
+open your terminal and change directory to extract mail archive i.e
+#cd openrec
+
+Then run it as follows:
+
+#./openrec
+
+
+===============================================OPTIONAL============================
+IF you muzt train the world model you have to Download (90MB): http://mistral.univ-avignon.fr/doc/01_GMM-UBM_system_with_ALIZE3.0.tar.gz
+
+Extract and copy everything in 
+
+01_GMM-UBM_system_with_ALIZE3.0/data/sph
+
+to
+
+trainWorldData/sph
