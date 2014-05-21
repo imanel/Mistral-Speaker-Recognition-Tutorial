@@ -6,6 +6,7 @@
 #include <map>
 #include <assert.h>
 #include <algorithm>
+#include <unistd.h>
 
 using namespace std;
 
@@ -71,7 +72,7 @@ void trainWorldModel(){
 }
 
 string genRandomSequence() {
-	//modified the solution at 
+	//modified the solution at
 	//http://stackoverflow.com/questions/440133/how-do-i-create-a-random-alpha-numeric-string-in-c
     static const char alphanum[] =
         "0123456789"
@@ -96,7 +97,7 @@ void commenceTraining(){
 	string command = "./scripts/01_feature_extraction_traintarget.sh";
 
 	int ret = system(command.c_str());
-	
+
 	if (ret == 0)
 	{
 		cout << "Finished Extracting Features" << endl;
@@ -146,7 +147,7 @@ void enrolUser(std::vector< std::pair<string, string> > &memDatabase){
 		std::getline (std::cin,name);
 
 		cout << endl;
-		
+
 		cout << "Record is starting in 3 seconds..." << endl;
 
 		sleep(3);
@@ -186,7 +187,7 @@ void enrolUser(std::vector< std::pair<string, string> > &memDatabase){
 				command = "echo \"" + file + "\" >> trainGenuineData/data.lst";
 				command2 = "echo \"" + string(strcounter) + " " + file + "\" >> ndx/trainModel.ndx";
 			}
-			
+
 			assert(system(command.c_str()) == 0);
 			assert(system(command2.c_str()) == 0);
 
@@ -216,7 +217,7 @@ void enrolUser(std::vector< std::pair<string, string> > &memDatabase){
 
 		for(std::vector<std::pair<string, string> >::iterator it = memDatabase.begin(); it != memDatabase.end(); it++)
 		{
-			
+
 			// if (itt->second == it->second)
 			// 	continue;
 
@@ -227,11 +228,11 @@ void enrolUser(std::vector< std::pair<string, string> > &memDatabase){
 
 		if (count == 1)
 		{
-			command += "\" > ndx/computetest_gmm_target-seg.ndx";	
+			command += "\" > ndx/computetest_gmm_target-seg.ndx";
 		}else{
 			command += "\" >> ndx/computetest_gmm_target-seg.ndx";
 		}
-		
+
 		//fprintf(stderr, "%s\n", command.c_str());
 		//exit(-1);
 		assert(system(command.c_str()) == 0);
@@ -280,10 +281,10 @@ void makeDecizion(std::vector<std::pair<string, string> > &memDatabase){
 	// 	}
 	// }
 
-	// if (highestScore < THRESHOLD)	
+	// if (highestScore < THRESHOLD)
 	// {
 	// 	cout << "\n\n\n\tUser Does not exists, Please Try Authenticating again or adjust the threshold (strictness)\n\n" << endl;
-	// 	cerr << "\n\n\n\tHighest Scorer: " << who << " with score: " << highestScore << endl << endl; 
+	// 	cerr << "\n\n\n\tHighest Scorer: " << who << " with score: " << highestScore << endl << endl;
 	// 	return;
 	// }
 
@@ -309,7 +310,7 @@ void voiceAuthentication(std::vector<std::pair<string, string> > &memDatabase){
 	std::getline (std::cin,key);
 
 	cout << endl;
-		
+
 	cout << "Record is starting in 3 seconds..." << endl;
 
 	sleep(3);
@@ -346,7 +347,7 @@ void voiceAuthentication(std::vector<std::pair<string, string> > &memDatabase){
 			char strcounter[10];
 
 			for(std::vector<std::pair<string, string> >::iterator it = memDatabase.begin(); it != memDatabase.end(); it++){
-				
+
 				sprintf(strcounter, "spk%d",++counter);
 				command += string(strcounter) + "  ";
 				impcommand += it->second + "  "+ file + "\n";
@@ -371,11 +372,11 @@ void voiceAuthentication(std::vector<std::pair<string, string> > &memDatabase){
 
 		if (count == 1)
 		{
-			command += "\" > ndx/imp_seg.ndx";	
+			command += "\" > ndx/imp_seg.ndx";
 		}else{
 			command += "\" >> ndx/imp_seg.ndx";
 		}
-		
+
 		//fprintf(stderr, "%s\n", command.c_str());
 		//exit(-1);
 		assert(system(command.c_str()) == 0);
@@ -391,7 +392,7 @@ void voiceAuthentication(std::vector<std::pair<string, string> > &memDatabase){
 		sleep(3);
 
 		command = "./scripts/04_TrainTargetsIpostors.sh";
-		
+
 		ret = system(command.c_str());
 
 		if (ret == 0)
@@ -439,7 +440,7 @@ void printMenu(){
 	for (int i = 0; i < 50; ++i)
 		cout << "-";
 	cout << endl;
-	
+
 	cout << "\t\tMENU" << endl;
 
 	for (int i = 0; i < 50; ++i)
@@ -499,6 +500,6 @@ int main(int argc, char const *argv[])
 
 
 	}
-	
+
 	return 0;
 }
