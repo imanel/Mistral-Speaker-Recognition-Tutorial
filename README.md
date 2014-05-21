@@ -37,6 +37,7 @@ DEPENCENCIES
 
 Everything is present in bin directory, but if you need to compile it by youself:
 
-- Alize (https://github.com/imanel/ALIZE)
-- LIA_RAL (https://github.com/imanel/LIA_RAL)
+- Alize and LIA_RAL (http://alize.univ-avignon.fr)
+- HKT (http://htk.eng.cam.ac.uk)
+- SPro (http://www.irisa.fr/metiss/guig/spro/index.html)
 - NIST Sphere (https://github.com/imanel/nist-sphere)
